@@ -1,4 +1,3 @@
-#базовая страница, от которой будут унаследованы все остальные классы
 from selenium.common.exceptions import NoSuchElementException
 
 class BasePage():
