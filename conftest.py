@@ -32,3 +32,7 @@ def browser(request): # принимаем  реквест от pytest_addoption
     yield browser
     print("\nquit browser..")
     browser.quit()
+
+@pytest.fixture(scope="session")
+def language(request):
+    return request.config.getoption("language")
