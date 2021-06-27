@@ -26,3 +26,33 @@ class TestProductPage:
         page.should_be_message_about_the_price_in_the_basked()
         page.product_name_check()
         page.product_price_check()
+
+
+    @pytest.mark.xfail
+    def test_guest_cant_see_success_message_after_adding_product_to_basket(self, browser):
+        # Arrange
+        page = ProductPage(browser, link_available_item)
+        # Act
+        page.open()
+        page.add_to_basket_product()
+        # Assert
+        page.should_not_be_success_message()
+
+
+    def test_guest_cant_see_success_message(self, browser):
+        # Arrange
+        page = ProductPage(browser, link_available_item)
+        # Act
+        page.open()
+        # Assert
+        page.should_not_be_success_message()
+
+    @pytest.mark.xfail
+    def test_message_disappeared_after_adding_product_to_basket(self, browser):
+        # Arrange
+        page = ProductPage(browser, link_available_item)
+        # Act
+        page.open()
+        page.add_to_basket_product()
+        # Assert
+        page.should_be_disappeared()
