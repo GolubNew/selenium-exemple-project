@@ -9,7 +9,7 @@ def pytest_addoption(parser): # метод для передачи параме�
                      help="Choose browser: chrome or firefox")
     parser.addoption('--language', # принимаем язык
                      action='store',
-                     default='en',
+                     default='en-gb',
                      help="Choose language : ru, en ..." )
 
 @pytest.fixture(scope="function")
